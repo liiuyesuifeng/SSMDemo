@@ -14,6 +14,7 @@ public class UserServiceImpl implements UserService{
     private UserMapper userDao;
     @Override
     public User getUser(Integer uid) {
+        String aa = "\\|";
        return userDao.selectByPrimaryKey(uid);
     }
 }
