@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @ComponentScan
-@Component("performance")
+@Service("performance")
 public class DancePerformance implements Performance {
     @Override
     public void perform() {
