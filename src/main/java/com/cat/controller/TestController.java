@@ -19,13 +19,12 @@ public class TestController {
     private UserService userService;
 
     @RequestMapping("/test")
-    public void getUser(HttpServletRequest request, HttpServletResponse response){
-        ModelAndView modelAndView = new ModelAndView();
-        User user = userService.getUser(1);
+    public String getUser(HttpServletRequest request, HttpServletResponse response){
+//        User user = userService.getUser(1);
         Gson gson  = new Gson();
-        String s = gson.toJson(user);
-        System.out.println(s);
-        modelAndView.addObject("userInfo",s);
+//        String s = gson.toJson(user);
+        System.out.println("success");
+        return "index.html";
     }
 
 }

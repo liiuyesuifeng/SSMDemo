@@ -1,5 +1,6 @@
 package com.cat.test.aop.show.aop;
 
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 
 @Aspect
@@ -37,5 +38,21 @@ public class Audience {
     @AfterThrowing("execution(* com.cat.test.aop.show.Performance.perform(..))")
     public void demanRefund(){
         System.out.println("失败");
+    }
+
+    @Around("performance()")
+    public void aroundPerForMance(ProceedingJoinPoint joinPoint){
+        try{
+            System.out.println("1");
+            System.out.println("2");
+            /**
+             * 通知切点方法执行
+             */
+            joinPoint.proceed();
+            System.out.println("3");
+        }catch (Throwable te){
+            System.out.println("4");
+        }
+
     }
 }
